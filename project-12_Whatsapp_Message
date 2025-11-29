@@ -1,0 +1,5 @@
+import pywhatkit
+pywhatkit.sendwhatmsg_instantly("+91xxxxxxxxxx", "i am from vgu")
+pywhatkit.sendwhatmsg("+91xxxxxxxxxx", "hi am from vgu", 15,9)
+pywhatkit.sendwhatmsg_to_group("","hi",)
+import webbrowser

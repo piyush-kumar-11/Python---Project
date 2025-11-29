@@ -1,0 +1,25 @@
+from flask import Flask, request
+
+app = Flask(__name__) 
+
+items = []
+
+@app.route("/")
+def home():
+    return "Simple Flask API is running!"
+
+@app.route("/add", methods=["POST"])
+def add_item():
+    data = request.get_json()
+    item = data.get("item") if data else None
+    if not item:
+        return {"error": "Missing 'item' field"}, 400
+    items.append(item)
+    return {"message": f"Added: {item}"}
+
+@app.route("/items")
+def get_items():
+    return {"items": items}
+
+if __name__ == "__main__":
+    app.run(debug=True)
